@@ -17,13 +17,42 @@
     <div class="card">
         <div class="card-header"> Q1 Who stole Christmas?</div>
         <div class="card-body">
-            <div><input name="Q1" type="radio"/>A1 Snoopy.</div>
-            <div><input name="Q1" type="radio"/>A2 The Grinch.</div>
-            <div><input name="Q1" type="radio"/>A3 Elf</div>
-<input type="button" value="Select"/>
-
+            <div><input name="Q1" type="radio" />A1 Snoopy.</div>
+            <div><input name="Q1" type="radio" class="right-answer" />A2 The Grinch.</div>
+            <div><input name="Q1" type="radio" />A3 Elf</div>
+            <input name="Q1" type="button" value="Select" />
         </div>
     </div>
+
+    <div class="card">
+        <div class="card-header"> Q2 When is christmas?</div>
+        <div class="card-body">
+            <div><input name="Q2" type="radio" />A1 Jan 1st.</div>
+            <div><input name="Q2" type="radio"  />A2 Dec 1st.</div>
+            <div><input name="Q2" type="radio" class="right-answer"/>A3 Dec 25th</div>
+            <input name="Q2" type="button" value="Select" />
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
+    <script type="text/javascript">
+
+        $(function(){
+            $('input:button').on('click', function(evt){
+                var currentButton = evt.target;
+                var questionNumber = $(currentButton).attr('name');
+                var selectedInput = $('input:checked[name='+questionNumber+']');
+                if(selectedInput.hasClass('right-answer')){
+                    alert('right answer');
+                }
+                else{
+                    alert('wrong answer');
+                }
+
+            });
+        })
+
+    </script>
 </body>
 
 </html>
