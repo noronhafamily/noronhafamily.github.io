@@ -9,7 +9,7 @@ def main():
         print ("yes")
         q2 = input("What country does Van Dijk play for? :  ")
     else:
-        q()
+        q() 
     if q2 == "Netherlands":
         print ("yes")
     else:
