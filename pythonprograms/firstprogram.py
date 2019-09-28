@@ -1,7 +1,7 @@
 import random
 
 def main():
-    #program1()
+   
     program2()
 
 
@@ -24,19 +24,6 @@ def program2():
         print("ooops the number is ",secret_number)
 
 
-
-
-
-def program1():
-    numbr = int(input("Gimme a number"))
-    if numbr == 2:
-        print("great job!!")
-    else:
-        print("sorry")
-
-
-def multiply(a, b):
-    return a * b
 
 if __name__ == "__main__":
     main()
