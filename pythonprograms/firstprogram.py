@@ -12,7 +12,7 @@ def program2():
 
     while turns>0:
         print("You have ",turns, "turn(s)")
-        num = int(input("Guess a number"))
+        num = int(input("Guess a number between one to ten"))
         if num == secret_number:
             print("good job! the number is ",num,",")
             break
