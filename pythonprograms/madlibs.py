@@ -1,3 +1,6 @@
+
+
+
 name1 = input("type a name   ")
 place1 = input('type a place   ')
 noun1 = input('type a noun   ')

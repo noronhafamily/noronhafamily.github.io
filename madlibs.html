@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mad Libs</title>
+</head>
+<body>
+    <div>
+        <div> Enter a name: <input id="name"/></div>
+        <div> Enter a place: <input id="place"/></div>
+        <div> Enter a noun: <input id="noun"/></div>
+        <div> Enter a food: <input id="food"/></div>
+        <div> Enter another place: <input id="anotherPlace"/></div>
+        <button type="button" id="buttonDone" onclick="doMadLib()">Done</button>
+        <hr/>
+        <div id="madLibText">
+
+
+        </div>
+
+    </div>
+
+    <script>
+       window.onload = function(){
+           //document.getElementById('buttonDone').addEventListener('click', doMad)
+       }
+
+       function doMadLib(){
+        //get the values from inputs
+        var name = document.getElementById('name').value;
+        var place = document.getElementById('place').value;
+        var noun = document.getElementById('noun').value;
+        var food = document.getElementById('food').value;
+        var anotherPlace = document.getElementById('anotherPlace').value;
+
+        var madLibOutput = 'One day '+name+' was walking down the '+place+' and met a'+noun
+                            +'. Then, the '+name+' ran away and '+noun+' said,"Hi, my name is Mrs.'+noun 
+                            +' and I\'m hungry'+name+"let Mrs."+noun+"come to "+place+
+                            ",and eat some "+food+".And they lived happily ever after."
+                            ;
+
+
+        //"One day,",name1,"was walking down the",place1,"and met a ",noun1,".",name1,"ran away and the",noun1,"said,'Hi,my name is Mrs.",noun1,"and i am very hungry!'.So ",name1,"let Mrs.",noun1,"come to ",place2,",and eat some ",noun2,".And they lived happily ever after.")
+        // to get the value of div. use innert text and it will get all of its content
+        document.getElementById('madLibText').innerText = madLibOutput;
+       }
+    
+    </script>
+</body>
+</html>
