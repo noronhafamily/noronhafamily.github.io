@@ -35,16 +35,21 @@
         var food = document.getElementById('food').value;
         var anotherPlace = document.getElementById('anotherPlace').value;
 
-        var madLibOutput = 'One day '+name+' was walking down the '+place+' and met a'+noun
-                            +'. Then, the '+name+' ran away and '+noun+' said,"Hi, my name is Mrs.'+noun 
-                            +' and I\'m hungry'+name+"let Mrs."+noun+"come to "+place+
-                            ",and eat some "+food+".And they lived happily ever after."
-                            ;
+        var madLibOutput = 'One day '+makeBold(name)+' was walking down the '+makeBold(place)+' and met a '+makeBold(noun)
+                            +'. Then, '+makeBold(name)+' ran away and the '+makeBold(noun)+' said,"Hi, my name is Mrs. '+makeBold(noun) 
+                            +' and I\'m very hungry! Then, '+makeBold(name)+' let Mrs. '+makeBold(noun)+' come to the '+makeBold(anotherPlace)+
+                            ' ,and eat some '+makeBold(food)+'.And they lived happily ever after.';
+                            
 
 
         //"One day,",name1,"was walking down the",place1,"and met a ",noun1,".",name1,"ran away and the",noun1,"said,'Hi,my name is Mrs.",noun1,"and i am very hungry!'.So ",name1,"let Mrs.",noun1,"come to ",place2,",and eat some ",noun2,".And they lived happily ever after.")
         // to get the value of div. use innert text and it will get all of its content
-        document.getElementById('madLibText').innerText = madLibOutput;
+        document.getElementById('madLibText').innerHTML = madLibOutput;
+       }
+
+       function makeBold(text){
+           var boldedText = '<b>'+text+'</b>';
+           return boldedText;
        }
     
     </script>
