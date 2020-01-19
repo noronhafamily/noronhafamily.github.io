@@ -1,23 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Country Quiz</title>
 </head>
-<body><h1>Welcome to the Quiz!</h1>
+
+<body>
+    <h1>Welcome to the Quiz!</h1>
     <div class="card-header">Name that Country!</div>
     <div class="card-body">
-        
-        <img src="/flag_images/flag_comoros.jpg" height="175" width="300"/></div>
-    <div>  <div><input name="Q1" type="radio" class="right-answer" />A1 Comoros.</div>
-    <div><input name="Q1" type="radio" />A2 Comanoc.</div>
-    <div><input name="Q1" type="radio" />A3 Indemis</div>
+
+        <img src="/flag_images/flag_comoros.jpg" height="175" width="300" />
+    </div>
+    <div>
+        <div><input name="Q1" type="radio" class="right-answer" />A1 Comoros.</div>
+        <div><input name="Q1" type="radio" />A2 Comanoc.</div>
+        <div><input name="Q1" type="radio" />A3 Indemis</div>
+        <input name="Q1" type="button" value="Select" />
+    </div>
+    <div class="card-header">Name that Country!</div>
+    <div class="card-body">
+
+        <img src="/flag_images/flag_djibouti.jpg" height="175" width="300" />
+    </div>
+    <div>
+        <div><input name="Q2" type="radio" />A1 Fibsry.</div>
+        <div><input name="Q2" type="radio" />A2 Delouboutie.</div>
+        <div><input name="Q2" type="radio" class="right-answer" />A3 Djibouti</div>
+        <input name="Q1" type="button" value="Select" />
+    </div>
+    <img src="/flag_images/flag_norway.jpg" height="175" width="300" />
+</div>
+<div>
+    <div><input name="Q3" type="radio" class="right-answer"/>A1 Norway.</div>
+    <div><input name="Q3" type="radio" />A2 Monaco.</div>
+    <div><input name="Q3" type="radio" />A3 Yemen</div>
     <input name="Q1" type="button" value="Select" />
 </div>
-</div>
-/></div>
 
+
+
+
+
+    <!--This is the script for checking the answers-->
+    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
+    <script type="text/javascript">
+
+        $(function(){
+            $('input:button').on('click', function(evt){
+                var currentButton = evt.target;
+                var questionNumber = $(currentButton).attr('name');
+                var selectedInput = $('input:checked[name='+questionNumber+']');
+                if(selectedInput.hasClass('right-answer')){
+                    alert('right answer');
+                }
+                else{
+                    alert('wrong answer');
+                }
+
+            });
+        })
+
+    </script>
 </body>
+
 </html>
