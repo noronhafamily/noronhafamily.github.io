@@ -5,21 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Number Guesser</title>
+    <style>
+        /*by tag name*/
+        strong {
+            font-size: x-large;
+        }
+        a {
+            color:rgb(29, 25, 250)
+        }
+        a:hover{
+            font-size:60px;
+            color:blueviolet;
+        }
+        
+    </style>
 </head>
 <body>
     <h1>Welcome to Number Guesser!</h1>
     <div><a href="../index.html"> Go Home </a></div>
      <h3>Guess a number from 1-10</h3>
-     <div> Enter your number: <input id="number"/></div>
+     <div> Enter your number: <input id="number" placeholder="1-10" /></div>
      <button type="button" id="buttonDone" onclick="doNum()">Done</button>   
-     <hr/>
-     <div>
-        <strong>x</strong>
-        <span> tries left</span>
-     </div>
-     <div>
-        <span>x</span>
-        <span>Right / Wrong</span>
-     </div>  
+     <hr>
+     
+     <script>
 
+        var secretNumber = getRandomNumberBetween(1,10);
+        console.log(secretNumber);
+        var tries = 3
+
+        function restart(){
+            secretNumber = getRandomNumberBetween(1,10);
+            console.log('Your new secret number is', secretNumber);
+            tries=3;
+            console.log('You have ',tries,'tries');
+        }
+
+        //make number lower and upper example:1-9
+        function getRandomNumberBetween(lower, upper){
+            var initialRandomNumber = Math.random();
+            var randomNumber = lower+((upper-lower)*initialRandomNumber);
+            return parseInt(randomNumber);
+        }
+                
+
+
+        
+
+        function getTextBoxValue(){
+            var inputBox = document.getElementById('number');
+            var inputBoxValue = inputBox.value;
+            return inputBoxValue;
+        }
+        
+        function doNum(){
+            //get the number that was entered in the textbox
+            // var inputBox = document.getElementById('number');
+            // var inputBoxValue = inputBox.value;
+            var numberGuessed = getTextBoxValue();
+            //alert('You entered '+inputBoxValue);
+            tries=tries-1;
+            if(numberGuessed == secretNumber){
+                alert('You got it! Great job!')
+                restart();
+            }else{
+                alert('Oops, try again :('+ 
+                ' Your guess of '+numberGuessed + ' is incorrect' +
+                ' you have '+tries+' tries left');
+            }
+            
+            if (tries==0) {
+                alert('Oops, you ran out of tries:( making new Secret Number ')
+                restart();
+            }
+        }
+
+        
+     </script>  
+</body>
 </html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="heading">Questions to answer</h1>
+    <div class="card" name="Q1card">
+        <div class="card-header"> </div>
+        <div class="card-body">
+            <div>Chose a Job</div>
+            <div><input name="Q1" type="radio" value="Soccer player" />Soccer player</div>
+            <div><input name="Q1" type="radio" value="Cook" />Cook</div>
+            <div><input name="Q1" type="radio" value="Teacher" />Teacher</div>
+            <input name="btnSubmit" type="button" value="Select" onclick="set1()" />
+        </div>
+    </div>
+    <div class="card" name="Q2card">
+        <div class="card-header"> </div>
+        <div class="card-body">
+            <div>Chose a Minor League</div>
+            <div><input name="Q2" type="radio" value="English League 2" />English League 2</div>
+            <div><input name="Q2" type="radio" value="La Paris Ligue" />La Paris Ligue</div>
+            <div><input name="Q2" type="radio" value="American League 1" />American League 1</div>
+            <input name="btnSubmit" type="button" value="Select" onclick="set1()" />
+        </div>
+    </div>
+    <div class="card" name="Q3card">
+        <div class="card-header"> </div>
+        <div class="card-body">
+            <div>Chose what type of cook you want to be.</div>
+            <div><input name="Q3" type="radio" value="Baker" />English League 2</div>
+            <div><input name="Q3" type="radio" value="Pizza Maker" />La Paris Ligue</div>
+            <div><input name="Q3" type="radio" value="to start your own business" />Or start your own business</div>
+            <input name="btnSubmit" type="button" value="Select" onclick="set1()" />
+        </div>
+    </div>
+    <div class="card" name="Q4card">
+        <div class="card-header"> </div>
+        <div class="card-body">
+            <div>Chose what type of cook you want to be.</div>
+            <div><input name="Q4" type="radio" value="Baker" />English League 2</div>
+            <div><input name="Q4" type="radio" value="Pizza Maker" />La Paris Ligue</div>
+            <div><input name="Q4" type="radio" value="to start your own business" />Or start your own business</div>
+            <input name="btnSubmit" type="button" value="Select" onclick="set1()" />
+        </div>
+    </div>
+    <script>
+        hideAllCards();
+        showCardByName('Q1card');
+
+        function set1() {
+            var selectedElement = document.querySelector('[name="Q1"]:checked');
+            if (selectedElement == null) {
+                alert('please select a value');
+            }
+            else {
+                var answer = selectedElement.value;
+                alert('you chose ' + answer);
+                hideAllCards();
+                if (answer == 'Soccer player') {
+                    hideAllCards()
+                    showCardByName('Q2card')
+                }
+                else if (answer == 'Cook') {
+                    hideAllCards()
+                    showCardByName('Q3card')
+                }
+                else if (answer == 'Teacher') {
+                    hideAllCards()
+                    showCardByName('Q4card')
+                }
+                else {
+                    alert('Select a value')
+                }
+            }
+        }
+
+        function hideAllCards() {
+            document.querySelectorAll('.card').forEach(function (item) {
+                item.style.display = "none";
+            });
+        }
+
+        function showCardByName(name) {
+            var selector = '[name="' + name + '"]';
+            document.querySelector(selector).style.display = "block"
+        }
+
+    </script>
+</body>
+
+</html>

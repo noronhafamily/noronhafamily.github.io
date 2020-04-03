@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twister Generator</title>
+</head>
+<body>
+ <h1>Twister Generator</h1>
+ <button type="button" id="buttonDone" onclick="generate()">Start</button>
+ <script>
+     function generate(){
+        //count dwon
+
+        //change label if start->stop or if stop->start
+        var buttonText = document.getElementById('buttonDone').textContent;
+        console.log(buttonText);
+         if(buttonText == 'Start'){
+            document.getElementById('buttonDone').textContent = 'Stop';
+         }
+         else{
+            document.getElementById('buttonDone').textContent = 'Start';
+         }
+     }
+
+ </script>
+</body>
