@@ -1,26 +1,119 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Twister Generator</title>
+    <style>
+
+    </style>
 </head>
+
 <body>
- <h1>Twister Generator</h1>
- <button type="button" id="buttonDone" onclick="generate()">Start</button>
- <script>
-     function generate(){
-        //count dwon
+    <h1>Twister Generator</h1>
+    <div id="countdownbanner"
+        style="font-size:170px;padding-left:80%;border-color:blue;border-width:2px;border-style: solid;">
+        10
+    </div>
+    <div id="twisterMove">
 
-        //change label if start->stop or if stop->start
-        var buttonText = document.getElementById('buttonDone').textContent;
-        console.log(buttonText);
-         if(buttonText == 'Start'){
-            document.getElementById('buttonDone').textContent = 'Stop';
-         }
-         else{
-            document.getElementById('buttonDone').textContent = 'Start';
-         }
-     }
+    </div>
+    <!--Button Start/stop-->
+    <button type="button" id="buttonDone" onclick="generate()">Start</button>
+    <button type="button" id="buttonStartCount" onclick="startCountDown()">Start Countdown</button>
+    <button type="button" id="buttonStopCount" onclick="stopCountDown()">Stop Countdown</button>
 
- </script>
+    <script>
+        var countdownTimer = 10;
+        var timer;
+        function countdown() {
+            countdownTimer = countdownTimer - 1;
+            if (countdownTimer == 0) {
+                var message = createTwisterMessage();
+                document.getElementById("twisterMove").textContent = message;
+                announce(message);
+                countdownTimer = 10;
+            }
+            document.getElementById('countdownbanner').textContent = countdownTimer;
+        }
+
+        function createTwisterMessage() {
+            var twisterMessage = "";
+            //get randcom number that is either 1 or 2
+            var sideRandomNumber = randomNumber(1, 2);
+            if (sideRandomNumber == 1) {
+                //left
+                twisterMessage = "Left";
+            }
+            else {
+                //right
+                twisterMessage = "Right";
+            }
+            //get random number this is either 1 or 2
+            var body = randomNumber(1, 2);
+            if (body == 1) {
+                twisterMessage = twisterMessage + " Hand";
+            }
+            else {
+                twisterMessage = twisterMessage + " Foot";
+            }
+            //get random number this is 1-4
+            var color = randomNumber(1, 4);
+            if (color == 1) {
+                twisterMessage = twisterMessage + "Red";
+            }
+            else if (color == 2) {
+                twisterMessage = twisterMessage + "Yellow";
+            }
+            else if (color == 3) {
+                twisterMessage = twisterMessage + "Blue";
+            }
+            else {
+                twisterMessage = twisterMessage + "Green";
+            }
+
+            //return the message
+            return twisterMessage;
+        }
+
+
+        // Function to generate random number 
+        function randomNumber(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+
+
+        function announce(announcement) {
+            var msg = new SpeechSynthesisUtterance(announcement);
+            msg.voice = speechSynthesis.getVoices().filter(function (voice) { return voice.name == 'Whisper'; })[0];
+            speechSynthesis.speak(msg);
+        }
+
+        function startCountDown() {
+            timer = setInterval(countdown, 1000);
+        }
+
+        function stopCountDown() {
+            clearInterval(timer);
+        }
+
+
+        function generate() {
+            //count dwon
+
+            //change label if start->stop or if stop->start
+            var buttonText = document.getElementById('buttonDone').textContent;
+            console.log(buttonText);
+            if (buttonText == 'Start') {
+                document.getElementById('buttonDone').textContent = 'Stop';
+            }
+            else {
+                document.getElementById('buttonDone').textContent = 'Start';
+            }
+        }
+
+    </script>
 </body>
