@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mega Math</title>
+</head>
+<body>
+    <div>
+        <h1>Mega Math</h1>
+    </div>
+    <div id="menu">
+        <div>
+            <button type="button" id="buttonCalculator" onclick="doCalculator()">Calculator</button>
+        </div>
+        <div>
+            <button type="button" id="buttonAddition" onclick="doAddition()">Addition</button>
+        </div>
+        <div>
+            <button type="button" id="buttonSubtraction" onclick="doSubtraction()">Subtraction</button>
+        </div>
+    </div>
+    <div id="calculator" style="display:none">
+        <h2>Calculator</h2>
+       
+
+        <div>
+            <div>
+                <input id="calculatorAddition1"/> + 
+                <input id="calculatorAddition2"/> = 
+                <input id="calculatorAdditionAnswer"/>
+                <button id="calculatorButton1" onclick="showAddItUp()">Add</button>
+            </div>
+            
+        
+        </div>
+        <div>
+            <br>
+            <button onclick="showMenu()">Back to Menu</button>
+        </div>
+    </div>
+    <div>
+        <div>
+            <input id="calculatorAddition1"/> + 
+            <input id="calculatorAddition2"/> = 
+            <input id="calculatorAdditionAnswer"/>
+            <button id="calculatorButton1" onclick="showAddItUp()">Add</button>
+        </div>
+        
+    
+    </div>
+    <div>
+        <br>
+        <button onclick="showMenu()">Back to Menu</button>
+    </div>
+</div>
+    <script>
+        function doCalculator(){
+            hide("#menu");
+            show("#calculator");
+        }
+
+        function showMenu(){
+            hide("#calculator")
+            show("#menu")
+        }
+
+        function show(sectionid){
+            document.querySelector(sectionid).style.display = "block";
+        }
+
+        function hide(sectionid){
+            document.querySelector(sectionid).style.display = "none";
+        }
+
+        function addItUp(){
+            var firstNumber = document.getElementById('calculatorAddition1').value;
+            var secondNumber = document.getElementById('calculatorAddition2').value;
+            var addItUpValue = Number(firstNumber) + Number(secondNumber);
+            console.log(addItUpValue);
+            return addItUpValue;
+        }
+
+        function showAddItUp(){
+            var showAddItUp = addItUp();
+            var calculatorAdditionAnswer = document.getElementById("calculatorAdditionAnswer").value;
+            if (showAddItUp == calculatorAdditionAnswer){
+                alert('You got it! Great job!')
+        
+            }else{
+                alert('Oops, try again :( '+
+                ' Your guess of '+calculatorAdditionAnswer + ' is incorrect' +
+                ' the answer is '+showAddItUp+'.');
+            }
+        }
+        
+    </script>
+</body>
+</html>

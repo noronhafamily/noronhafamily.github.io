@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery List</title>
+</head>
+<body>
+    <div> Enter your item: <input id="item" placeholder="Item" /></div>
+    <button type="button" id="showItems" onclick="addToList()">Done</button>
+
+    <div id="mylist">
+
+    </div> 
+
+    <script>
+        function addToList(){
+            //Get the item from the text box
+            var findItem = document.getElementById('item').value;
+            
+
+            //add the item to my exiting list
+            document.getElementById('mylist').innerText = document.getElementById('mylist').innerText + "\n"+ findItem;
+        }
+    </script>
+</body>
+</html>
