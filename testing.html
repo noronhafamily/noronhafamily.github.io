@@ -8,10 +8,25 @@
 </head>
 <body>
     
+    <input id="guessbox" value="12">
+
+
+
     <script>
+        
         var secretNumber = Math.floor(Math.random()*10)
-        prompt("What number are ya guessin'")
-        document.body.append(1+1)
+        console.log(secretNumber) //this is to double check the secret number
+        //var guess = prompt("What number are ya guessin'")
+        var guessInput = document.getElementById("guessbox");
+        guessInput.style.backgroundColor = "yellow";
+        var guess = guessInput.value;
+        console.log(guess);
+        if(guess == secretNumber){
+            document.body.append('Yay! You correctly guessed the number ' + secretNumber)
+        } else{
+            document.body.append("Sorry, you didn't guess correctly. The correct number is " + secretNumber)
+        }
+        
     </script>
 </body>
 </html>
